@@ -1,0 +1,51 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-read-pods
+subjects:
+- kind: Group
+  name: cluster-devs
+- kind: Group
+  name: cluster-ops
+roleRef:
+  kind: ClusterRole
+  name: cluster-pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-write-pods
+subjects:
+- kind: Group
+  name: cluster-ops
+roleRef:
+  kind: ClusterRole
+  name: cluster-pod-writer
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-read-secrets
+subjects:
+- kind: Group
+  name: cluster-secure-operator
+- kind: Group
+  name: cluster-secure-admin
+roleRef:
+  kind: ClusterRole
+  name: cluster-secret-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-write-secrets
+subjects:
+- kind: Group
+  name: cluster-secure-admin
+roleRef:
+  kind: ClusterRole
+  name: cluster-secret-writer
+  apiGroup: rbac.authorization.k8s.io
