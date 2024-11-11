@@ -10,8 +10,8 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- namespace: default
- name: cluster-pod-writer
+  namespace: default
+  name: cluster-pod-writer
 rules:
 - apiGroups: [""]
   resources: ["pods"]
@@ -20,8 +20,8 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- namespace: default
- name: cluster-secret-reader
+  namespace: default
+  name: cluster-secret-reader
 rules:
 - apiGroups: [""]
   resources: ["secrets"]
@@ -30,8 +30,8 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- namespace: default
- name: cluster-secret-writer
+  namespace: default
+  name: cluster-secret-writer
 rules:
 - apiGroups: [""]
   resources: ["secrets"]
